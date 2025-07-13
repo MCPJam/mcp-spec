@@ -1,8 +1,9 @@
-import { z } from "zod"; // Or any validation library that supports Standard Schema
+#!/usr/bin/env node
+import { z } from "zod";
 import { FastMCP } from "fastmcp";
 const server = new FastMCP({
-    name: "My Server",
-    version: "1.0.0",
+    name: "@mcpjam/mcp-spec",
+    version: "1.0.7",
 });
 server.addTool({
     name: "add",

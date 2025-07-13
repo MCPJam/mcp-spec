@@ -1,6 +1,6 @@
 {
   "name": "@mcpjam/mcp-spec",
-  "version": "1.0.0",
+  "version": "1.0.8",
   "main": "dist/index.js",
   "bin": {
     "mcp-spec": "dist/index.js"
@@ -12,12 +12,13 @@
     "prepare": "npm run build",
     "watch": "tsc --watch",
     "dev": "node --loader ts-node/esm src/index.ts",
+    "publish": "npm publish --access public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "MCPJam",
+  "license": "MIT",
+  "description": "A MCP Server for the Model Context Protocol (MCP) spec",
   "devDependencies": {
     "@types/node": "^24.0.13",
     "ts-node": "^10.9.2",
