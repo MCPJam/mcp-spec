@@ -1,5 +1,12 @@
 # MCP Specification Server
 
+[![npm version](https://img.shields.io/npm/v/@mcpjam/mcp-spec?style=for-the-badge&color=blue)](https://www.npmjs.com/package/@mcpjam/mcp-spec)
+[![npm downloads](https://img.shields.io/npm/dm/@mcpjam/mcp-spec?style=for-the-badge&color=green)](https://www.npmjs.com/package/@mcpjam/mcp-spec)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg?style=for-the-badge&logo=node.js)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8+-blue.svg?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/JEnDtz8X6z)
+
 ## Overview
 
 We turned the [Model Context Protocol documentation](https://modelcontextprotocol.io/) into an MCP server so that your LLM can get context on the full MCP specs. Query specific sections like "Tools", "Resources", "Authorization", and 20+ others to get the complete documentation for that section.
