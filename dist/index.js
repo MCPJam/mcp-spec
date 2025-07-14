@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { z } from "zod";
-import { FastMCP } from "fastmcp";
+import { FastMCP, UserError } from "fastmcp";
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -24,7 +24,7 @@ function loadAndIndexDocument() {
         let chunkStartLine = 1;
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i];
-            if (line.match(/^##+ /)) {
+            if (line.match(/^# /)) {
                 if (chunkContent.trim()) {
                     documentChunks.push({
                         id: chunkId,
@@ -76,39 +76,61 @@ function loadAndIndexDocument() {
     }
 }
 server.addTool({
-    name: "search_mcp_spec",
+    name: "mcpjam_search_mcp_spec",
     description: "Search the MCP specification document for relevant content",
     parameters: z.object({
-        query: z.string().describe("Search query for the MCP specification"),
-        limit: z
-            .number()
-            .optional()
-            .default(5)
-            .describe("Maximum number of results to return (default: 5)"),
+        query: z
+            .enum([
+            "Introduction",
+            "Core components",
+            "Connection lifecycle",
+            "Elicitation",
+            "Prompts",
+            "Resources",
+            "Roots",
+            "Sampling",
+            "Tools",
+            "Transports",
+            "Debugging",
+            "Follow logs in real-time",
+            "For Client Developers",
+            "For Server Developers",
+            "Architecture",
+            "Authorization",
+            "Lifecycle",
+            "Security Best Practices",
+            "Transports",
+            "Cancellation",
+            "Ping",
+            "Progress",
+            "Elicitation",
+            "Roots",
+            "Sampling",
+            "Specification",
+            "Overview",
+            "Prompts",
+            "Resources",
+            "Tools",
+            "Completion",
+            "Logging",
+            "Pagination",
+            "Versioning",
+        ])
+            .describe("Select a specific section of the MCP specification to retrieve."),
     }),
     execute: async (args) => {
         const fuse = loadAndIndexDocument();
         try {
             if (!fuse) {
-                return "Search index not initialized. Please try again.";
+                throw new UserError("Search index not initialized. Please try again.");
             }
-            const results = fuse.search(args.query).slice(0, args.limit);
-            if (results.length === 0) {
-                return "No results found for your query.";
+            // Find exact section match
+            const matchingChunk = documentChunks.find((chunk) => chunk.section === args.query);
+            if (!matchingChunk) {
+                return `No section found with the name "${args.query}".`;
             }
-            const searchResults = results.map((result) => {
-                const chunk = result.item;
-                return {
-                    section: chunk.section,
-                    line: chunk.line,
-                    content: chunk.content,
-                    score: result.score ? (1 - result.score).toFixed(3) : "N/A",
-                };
-            });
             return JSON.stringify({
-                query: args.query,
-                totalResults: results.length,
-                results: searchResults,
+                content: matchingChunk.content,
             }, null, 2);
         }
         catch (error) {
@@ -116,7 +138,6 @@ server.addTool({
         }
     },
 });
-// Load document on startup
 server.start({
     transportType: "stdio",
 });
