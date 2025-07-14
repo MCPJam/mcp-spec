@@ -12,7 +12,7 @@ const __dirname = dirname(__filename);
 
 const server = new FastMCP({
   name: "@mcpjam/mcp-spec",
-  version: "1.0.8",
+  version: "1.1.1",
 });
 
 const documentChunks: {
