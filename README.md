@@ -6,6 +6,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg?style=for-the-badge&logo=node.js)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8+-blue.svg?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/JEnDtz8X6z)
+[![smithery badge](https://smithery.ai/badge/@MCPJam/mcp-spec)](https://smithery.ai/server/@MCPJam/mcp-spec)
 
 ## Overview
 
@@ -64,6 +65,14 @@ Chat Settings, Tools / Integrations. Edit `mcp.json`
     }
   }
 }
+```
+
+### Installing via Smithery
+
+To install mcp-spec for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@MCPJam/mcp-spec):
+
+```bash
+npx -y @smithery/cli install @MCPJam/mcp-spec --client claude
 ```
 
 ## How it works
