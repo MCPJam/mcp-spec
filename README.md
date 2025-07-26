@@ -7,6 +7,10 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8+-blue.svg?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/JEnDtz8X6z)
 
+<a href="https://glama.ai/mcp/servers/@MCPJam/mcp-spec">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@MCPJam/mcp-spec/badge" alt="Specification Server MCP server" />
+</a>
+
 ## Overview
 
 We turned the [Model Context Protocol documentation](https://modelcontextprotocol.io/) into an MCP server so that your LLM can get context on the full MCP specs. Query specific sections like "Tools", "Resources", "Authorization", and 20+ others to get the complete documentation for that section.
